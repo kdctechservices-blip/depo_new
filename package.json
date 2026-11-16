@@ -1,0 +1,49 @@
+{
+  "name": "gestdepot",
+  "private": true,
+  "version": "1.0.0",
+  "description": "GestDepot — Logiciel de gestion commerciale pour dépôt de boissons (100 % local)",
+  "author": "GestDepot",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "start": "tsx server.ts",
+    "build": "vite build",
+    "build:server": "esbuild server.ts --bundle --platform=node --format=esm --target=node22 --outfile=dist-server/server.mjs --external:express --external:vite --external:dotenv --external:node:sqlite",
+    "build:electron": "npm run build && npm run build:server",
+    "electron:dev": "ELECTRON_START_URL=http://localhost:3000 electron electron/main.cjs",
+    "dist:win": "npm run build:electron && electron-builder --win --config electron-builder.yml",
+    "dist:mac": "npm run build:electron && electron-builder --mac --config electron-builder.yml",
+    "preview": "vite preview",
+    "clean": "rm -rf dist dist-server release server.js",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.1",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.9",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "recharts": "^3.10.1",
+    "vite": "^8.3.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.4.21",
+    "esbuild": "^0.25.0",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.21.0",
+    "typescript": "^7.0.2",
+    "vite-plugin-pwa": "^2.0.0"
+  }
+}

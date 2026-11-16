@@ -1,0 +1,6 @@
+{
+  "name": "GestDepot",
+  "description": "Application de gestion commerciale hors ligne pour un dépôt de boissons en Côte d'Ivoire : catalogue, conditionnements, stock, consignes, ventes/caisse, crédits clients, achats, livraisons, rentabilité, rapports Excel/PDF et sauvegardes SQLite.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
